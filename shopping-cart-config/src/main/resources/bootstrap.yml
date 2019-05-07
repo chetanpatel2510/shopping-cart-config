@@ -1,0 +1,27 @@
+# IMPORTANT: Put Config Server configurations in bootstrap.yml instead of application.yml. 
+# application.yml is scanned by clients and override their properties. 
+# Currently this is not resolved.
+
+# Set Server port
+server:
+  port: ${PORT:9000}
+
+
+# Set Application Name
+spring:
+  application:
+    name: shopping-cart-config
+  profiles:
+    active: dev 
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false # Do not decrypt the encrypted properties on server. Rather should be decrypted by client
+        git:
+          uri: https://github.com/chetanpatel2510/shopping-cart-config.git
+          default-label: develop
+          search-paths:
+          - /shopping-cart-config/**   # directory name of the project 
+          clone-on-start: true
+       
