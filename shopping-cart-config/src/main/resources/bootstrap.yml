@@ -2,11 +2,6 @@
 # application.yml is scanned by clients and override their properties. 
 # Currently this is not resolved.
 
-# Set Server port
-server:
-  port: ${PORT:9000}
-
-
 # Set Application Name
 spring:
   application:
