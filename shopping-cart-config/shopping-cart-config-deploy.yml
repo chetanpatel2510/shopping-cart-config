@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: shopping-cart-config
+spec:
+    replicas: 2
+    selector:
+        app: shopping-cart-config
+    template:
+        metadata:
+            labels:
+                app: shopping-cart-config
+        spec:
+            containers:
+            - name: shopping-cart-config
+              image: techiechetan/shopping-cart-config:latest
+              ports:
+              - containerPort: 8080
